@@ -1,0 +1,20 @@
+ [
+  {
+    "id": 1,
+    "text": "I am very interested in physical and sports activities.",
+    "options": ["Very poorly", "Rather poorly", "Rather well", "Very well"]
+  },
+  {
+    "id": 2,
+    "text": "I have difficulty when reasoning with numbers.",
+    "options": ["Very poorly", "Rather poorly", "Rather well", "Very well"]
+  },
+  {
+    "id": 3,
+    "text": "In the future, I would like to work abroad.",
+    "options": ["Very poorly", "Rather poorly", "Rather well", "Very well"]
+  }
+]
+   
+
+

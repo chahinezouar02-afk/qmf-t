@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>QMF-T TEST</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <h1>QMF-T Online Test</h1>
+
+    <div id="start-screen">
+        <p>Click the button below to begin the test.</p>
+        <button id="start-btn">Start Test</button>
+    </div>
+
+    <div id="test-container" class="hidden">
+        <!-- FIXED: Correct id -->
+        <p id="question-text"></p>
+
+        <!-- FIXED: Removed the space -->
+        <div id="options"></div>
+
+        <button id="next-btn">Next</button>
+    </div>
+
+    <div id="result-screen" class="hidden">
+        <h2>Your Results</h2>
+
+        <!-- FIXED: Correct id name -->
+        <p id="result-text"></p>
+    </div>
+
+    <script src="app.js"></script>
+
+</body>
+
+</html>
