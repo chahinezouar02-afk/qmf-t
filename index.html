@@ -1,40 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+    <!-- تعريف الترميز وعرض الصفحة -->
     <meta charset="UTF-8">
-    <title>QMF-T TEST</title>
-    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- عنوان التبويب للمتصفح -->
+    <title>Student Self-Assessment Platform</title>
+
+    <!-- استيراد خط Alice من Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Alice&display=swap" rel="stylesheet"><!-- استخدام Alice للنصوص الإنجليزية [web:1] -->
+
+    <!-- استيراد خط Glacial Indifference (من CDN حر) -->
+    <link href="https://fonts.cdnfonts.com/css/glacial-indifference-2" rel="stylesheet"><!-- استخدام Glacial Indifference للعناوين [web:6] -->
+
+    <!-- استيراد خط Droid Arabic Naskh للأرقام والنص العربي -->
+    <link href="https://fonts.cdnfonts.com/css/droid-arabic-naskh" rel="stylesheet"><!-- استخدام Droid Arabic Naskh للعربية والأرقام [web:10] -->
+
+    <!-- ربط ملف التنسيقات الرئيسي -->
+    <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
+    <!-- شريط التنقل العلوي الثابت في كل الصفحات -->
+    <header class="main-header">
+        <!-- يسار الشريط: اسم الموقع -->
+        <div class="logo">
+            <!-- اسم المنصة -->
+            Student Self-Assessment Platform
+        </div>
 
-    <h1>QMF-T Online Test</h1>
+        <!-- يمين الشريط: روابط الصفحات -->
+        <nav class="main-nav">
+            <!-- كل رابط يأخذ المستخدم إلى صفحة مختلفة كما طلبت -->
+            <a href="index.html" class="nav-link active">Home</a>
+            <a href="qmf.html" class="nav-link">QMF Test</a>
+            <a href="vocabulary.html" class="nav-link">Vocabulary Test</a>
+            <a href="about.html" class="nav-link">About Us</a>
+        </nav>
+    </header>
 
-    <div id="start-screen">
-        <p>Click the button below to begin the test.</p>
-        <button id="start-btn">Start Test</button>
-    </div>
+    <!-- محتوى الصفحة الرئيسية -->
+    <main class="page-content">
+        <!-- قسم الاقتباس تحت الشريط مباشرة -->
+        <section class="hero-section">
+            <!-- الاقتباس داخل علامات " كما طلبت -->
+            <p class="hero-quote">
+                "A simple platform for students to take key self-assessment tests and receive instant feedback on their learning and cognitive styles."
+            </p>
+        </section>
 
-    <div id="test-container" class="hidden">
-        <!-- FIXED: Correct id -->
-        <p id="question-text"></p>
+        <!-- قسم البطاقات الثلاثة للاختبارات -->
+        <section class="tests-grid">
+            <!-- البطاقة الأولى لاختبار QMF -->
+            <article class="test-card">
+                <!-- عنوان الاختبار -->
+                <h2 class="test-title">QMF TEST</h2>
 
-        <!-- FIXED: Removed the space -->
-        <div id="options"></div>
+                <!-- وصف مختصر للاختبار -->
+                <p class="test-description">
+                    The QMF-T questionnaire helps understand your unique style of learning, thinking, and interacting with university. There are no right or wrong answers—we simply want an honest reflection of your feelings and approach.
+                </p>
 
-        <button id="next-btn">Next</button>
-    </div>
+                <!-- زر البدء الذي يأخذ المستخدم إلى صفحة qmf.html -->
+                <a href="qmf.html" class="primary-button">
+                    Start
+                </a>
+            </article>
 
-    <div id="result-screen" class="hidden">
-        <h2>Your Results</h2>
+            <!-- البطاقة الثانية لاختبار Vocabulary -->
+            <article class="test-card">
+                <!-- عنوان الاختبار -->
+                <h2 class="test-title">VOCABULARY TEST</h2>
 
-        <!-- FIXED: Correct id name -->
-        <p id="result-text"></p>
-    </div>
+                <!-- وصف الاختبار -->
+                <p class="test-description">
+                    Test your vocabulary and word comprehension! In this assessment, you’ll choose the correct synonym for a given word from several options. It helps expand your language skills and understanding.
+                </p>
 
-    <script src="app.js"></script>
+                <!-- زر البدء الذي يأخذ المستخدم إلى صفحة vocabulary.html -->
+                <a href="vocabulary.html" class="primary-button">
+                    Start
+                </a>
+            </article>
 
+            <!-- البطاقة الثالثة لاختبار MATRICES (الرابط الخارجي) -->
+            <article class="test-card">
+                <!-- عنوان الاختبار -->
+                <h2 class="test-title">MATRICES TEST</h2>
+
+                <!-- وصف الاختبار -->
+                <p class="test-description">
+                    Sharpen your logical thinking and visual problem-solving! Here, you’ll complete the missing pattern or shape in a matrix to maintain its logical sequence.
+                </p>
+
+                <!-- زر البدء الذي يأخذ المستخدم إلى رابط Google Forms -->
+                <a href="https://forms.gle/psSZFhhJVECfX14q8" class="primary-button" target="_blank" rel="noopener noreferrer">
+                    Start
+                </a>
+            </article>
+        </section>
+    </main>
 </body>
-
 </html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- إعدادات أساسية -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Vocabulary Test | Student Self-Assessment Platform</title>
+
+    <!-- الخطوط -->
+    <link href="https://fonts.googleapis.com/css2?family=Alice&display=swap" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/glacial-indifference-2" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/droid-arabic-naskh" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- شريط التنقل -->
+    <header class="main-header">
+        <div class="logo">
+            Student Self-Assessment Platform
+        </div>
+        <nav class="main-nav">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="qmf.html" class="nav-link">QMF Test</a>
+            <a href="vocabulary.html" class="nav-link active">Vocabulary Test</a>
+            <a href="about.html" class="nav-link">About Us</a>
+        </nav>
+    </header>
+
+    <!-- محتوى الاختبار -->
+    <main class="page-content">
+        <section class="hero-section">
+            <p class="hero-quote">
+                "Vocabulary Test"
+            </p>
+        </section>
+
+        <!-- مستطيل السؤال والخيارات -->
+        <section class="question-panel">
+            <!-- رأس المستطيل (يمكنك إعادة استخدام نفس تصميم QMF لو أردت إضافة عداد وقت) -->
+            <div class="question-header">
+                <div class="question-progress">
+                    <!-- مثال: سؤال 1 من أصل 20 -->
+                    <span class="question-index">
+                        1 / 20
+                    </span>
+                </div>
+                <div class="timer-container">
+                    <span class="time-label">Time:</span>
+                    <span class="time-value">00:00</span>
+                    <span class="time-remaining-label">Remaining:</span>
+                    <span class="time-remaining-value">10:00</span>
+                </div>
+            </div>
+
+            <!-- شريط التقدم في الوقت -->
+            <div class="time-bar-wrapper">
+                <div class="time-bar-fill" style="width: 10%;"></div>
+            </div>
+
+            <!-- جسم السؤال -->
+            <div class="question-body">
+                <!-- الكلمة المطلوب اختيار مرادفها -->
+                <p class="question-text">
+                    Select the closest synonym for: <strong>"Happy"</strong>
+                </p>
+
+                <!-- ثلاث خيارات ضمن مستطيلات -->
+                <div class="options-grid">
+                    <button class="option-button">Joyful</button>
+                    <button class="option-button">Angry</button>
+                    <button class="option-button">Afraid</button>
+                </div>
+            </div>
+
+            <!-- زر التالي -->
+            <div class="question-footer">
+                <!-- في آخر سؤال يمكن استبدال النص بـ show score -->
+                <a href="vocabulary_result.html" class="primary-button">
+                    Next
+                </a>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
