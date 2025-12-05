@@ -1,0 +1,398 @@
+/* 
+    تطبيق لوحة الألوان أحادية اللون (Monochromatic)
+    #9fc0fb و #b7d0fc و #d0e0fd و #e8f0fe
+    مع استخدام الخطوط Alice و Glacial Indifference و Droid Arabic Naskh
+*/
+
+/* ضبط أساسيات الصفحة بالكامل */
+* {
+    /* إزالة الهوامش الافتراضية */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* جسم الصفحة */
+body {
+    /* خلفية خفيفة من لوحة الألوان */
+    background-color: #e8f0fe;
+    /* الخط الأساسي للنص الإنجليزي */
+    font-family: 'Alice', 'Glacial Indifference', 'Droid Arabic Naskh', serif;
+    /* لون النص */
+    color: #1f2933;
+    /* ارتفاع السطر لسهولة القراءة */
+    line-height: 1.6;
+}
+
+/* شريط العنوان الرئيسي في أعلى الصفحات */
+.main-header {
+    /* جعل الشريط بعرض كامل الصفحة */
+    width: 100%;
+    /* لون خلفية أغمق قليلاً */
+    background-color: #9fc0fb;
+    /* ترتيب العناصر أفقياً */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* حشوة داخلية */
+    padding: 0.75rem 1.5rem;
+    /* ظل خفيف أسفل الشريط */
+    box-shadow: 0 2px 4px rgba(15, 23, 42, 0.15);
+    /* تثبيت الشريط في الأعلى إذا رغبت (يمكن إزالة position إن لم ترد ذلك) */
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+/* اسم المنصة في الشريط */
+.logo {
+    /* استخدام خط غليشيال للعناوين */
+    font-family: 'Glacial Indifference', 'Alice', sans-serif;
+    /* حجم خط مناسب */
+    font-size: 1.1rem;
+    font-weight: 700;
+    /* لون نص داكن لوضوح أكبر */
+    color: #0b1120;
+}
+
+/* قائمة الروابط في الشريط */
+.main-nav {
+    display: flex;
+    gap: 1rem; /* مسافة بين الروابط */
+}
+
+/* خصائص الروابط في الشريط */
+.nav-link {
+    /* إزالة التسطير الافتراضي */
+    text-decoration: none;
+    /* لون النص */
+    color: #0b1120;
+    font-family: 'Glacial Indifference', 'Alice', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    /* إضافة حشوة لزيادة مساحة الضغط */
+    padding: 0.4rem 0.75rem;
+    /* زوايا مستديرة بسيطة */
+    border-radius: 999px;
+    /* انتقال سلس عند التمرير */
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* تأثير عند تمرير الفأرة على الرابط */
+.nav-link:hover {
+    background-color: #d0e0fd;
+    color: #1f2933;
+}
+
+/* الرابط النشط (الصفحة الحالية) */
+.nav-link.active {
+    background-color: #0b1120;
+    color: #e8f0fe;
+}
+
+/* الحاوية العامة لمحتوى الصفحات */
+.page-content {
+    /* تضييق العرض وجعله في الوسط */
+    max-width: 1100px;
+    margin: 2rem auto;
+    padding: 0 1rem 3rem;
+}
+
+/* قسم الاقتباس في أعلى الصفحات */
+.hero-section {
+    margin-bottom: 2rem;
+}
+
+/* نص الاقتباس داخل علامات " */
+.hero-quote {
+    /* خلفية فاتحة على شكل مستطيل */
+    background-color: #d0e0fd;
+    border-radius: 12px;
+    padding: 1.2rem 1.4rem;
+    font-style: italic;
+    font-size: 1rem;
+    border-left: 4px solid #9fc0fb;
+    color: #0b1120;
+}
+
+/* شبكة البطاقات الثلاثة في الصفحة الرئيسية */
+.tests-grid {
+    /* عرض شبكة 3 أعمدة على الشاشات الكبيرة */
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.5rem;
+}
+
+/* بطاقة اختبار واحدة */
+.test-card {
+    background-color: #ffffff;
+    border-radius: 14px;
+    padding: 1.5rem 1.25rem;
+    box-shadow: 0 4px 10px rgba(15, 23, 42, 0.08);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* عنوان الاختبار داخل البطاقة */
+.test-title {
+    font-family: 'Glacial Indifference', 'Alice', sans-serif;
+    font-size: 1rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #111827;
+    margin-bottom: 0.75rem;
+}
+
+/* وصف الاختبار */
+.test-description {
+    font-size: 0.92rem;
+    color: #374151;
+    margin-bottom: 1.25rem;
+}
+
+/* الزر الأساسي (start / next) */
+.primary-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    /* حجم الزر */
+    padding: 0.55rem 1.2rem;
+    /* لون الخلفية */
+    background-color: #0b1120;
+    /* لون النص */
+    color: #e8f0fe;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border-radius: 999px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+/* تأثير تمرير وحفظ */
+.primary-button:hover {
+    background-color: #111827;
+    transform: translateY(-1px);
+}
+
+/* زر ثانوي (come back home, go back home) */
+.secondary-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.55rem 1.2rem;
+    background-color: #b7d0fc;
+    color: #0b1120;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border-radius: 999px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.secondary-button:hover {
+    background-color: #9fc0fb;
+    transform: translateY(-1px);
+}
+
+/* مستطيل المعلومات في صفحات QMF و Vocabulary و About */
+.info-panel {
+    background-color: #ffffff;
+    border-radius: 14px;
+    padding: 1.5rem 1.4rem;
+    box-shadow: 0 4px 10px rgba(15, 23, 42, 0.08);
+    font-size: 0.95rem;
+    color: #1f2933;
+}
+
+/* هوامش الفقرات داخل لوحة المعلومات */
+.info-panel p + p {
+    margin-top: 0.7rem;
+}
+
+/* قائمة النقاط داخل لوح المعلومات */
+.info-panel ul {
+    margin-top: 0.75rem;
+    margin-bottom: 0.75rem;
+    padding-left: 1.2rem;
+}
+
+/* عنصر واحد في قائمة النقاط */
+.info-panel li {
+    margin-bottom: 0.3rem;
+}
+
+/* نص "Ready to begin?" بخط واضح */
+.ready-text {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+}
+
+/* لوحة السؤال المشتركة بين QMF و Vocabulary */
+.question-panel {
+    background-color: #ffffff;
+    border-radius: 14px;
+    padding: 1.4rem 1.4rem 1.6rem;
+    box-shadow: 0 4px 10px rgba(15, 23, 42, 0.08);
+}
+
+/* رأس لوحة السؤال: رقم السؤال + الوقت */
+.question-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.75rem;
+}
+
+/* الجزء الخاص برقم السؤال */
+.question-progress {
+    font-family: 'Glacial Indifference', 'Alice', sans-serif;
+    font-size: 0.9rem;
+    color: #111827;
+}
+
+/* الحاوية العامة للوقت */
+.timer-container {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    font-family: 'Droid Arabic Naskh', 'Alice', sans-serif; /* لإظهار الأرقام والوقت بخط واضح */
+    font-size: 0.85rem;
+    color: #111827;
+}
+
+/* شريط الوقت */
+.time-bar-wrapper {
+    width: 100%;
+    height: 6px;
+    background-color: #e8f0fe;
+    border-radius: 999px;
+    overflow: hidden;
+    margin-bottom: 1rem;
+}
+
+/* الجزء الملوّن الذي يوضح تقدم الوقت */
+.time-bar-fill {
+    height: 100%;
+    background-color: #9fc0fb;
+    /* العرض سيتم تعديله لاحقا إذا استخدمت جافاسكربت */
+    width: 0%;
+    transition: width 0.3s linear;
+}
+
+/* جسم السؤال */
+.question-body {
+    margin-bottom: 1.2rem;
+}
+
+/* نص السؤال نفسه */
+.question-text {
+    font-size: 0.95rem;
+    color: #111827;
+    margin-bottom: 0.9rem;
+}
+
+/* شبكة الخيارات */
+.options-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.6rem;
+}
+
+/* زر خيار واحد */
+.option-button {
+    padding: 0.6rem 0.7rem;
+    border-radius: 10px;
+    border: none;
+    background-color: #d0e0fd;
+    color: #0b1120;
+    font-size: 0.9rem;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease;
+}
+
+/* تأثير تمرير على الخيار */
+.option-button:hover {
+    background-color: #b7d0fc;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 6px rgba(15, 23, 42, 0.1);
+}
+
+/* أسفل لوحة السؤال: زر Next أو Show score */
+.question-footer {
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* لوحة النتيجة المشتركة بين QMF و Vocabulary */
+.result-panel {
+    background-color: #ffffff;
+    border-radius: 14px;
+    padding: 1.8rem 1.6rem;
+    box-shadow: 0 4px 10px rgba(15, 23, 42, 0.08);
+    text-align: center;
+}
+
+/* عنوان لوحة النتيجة */
+.result-title {
+    font-family: 'Glacial Indifference', 'Alice', sans-serif;
+    font-size: 1.2rem;
+    margin-bottom: 1.1rem;
+    color: #111827;
+}
+
+/* مستطيل عرض النتيجة */
+.score-box {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.9rem 1.4rem;
+    border-radius: 12px;
+    background-color: #d0e0fd;
+    margin-bottom: 1.3rem;
+}
+
+/* رقم النتيجة بالنمط الواضح */
+.score-value {
+    font-family: 'Droid Arabic Naskh', 'Alice', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #0b1120;
+}
+
+/* استجابة التصميم للشاشات الصغيرة (مثل الهواتف) */
+@media (max-width: 900px) {
+    /* جعل شبكة الاختبارات عمود واحد أو عمودين حسب العرض */
+    .tests-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 640px) {
+    /* جعل شبكة الاختبارات عمود واحد */
+    .tests-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* ترتيب الشريط العمودي أو تحت بعضه في الشاشات الضيقة */
+    .main-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+
+    .main-nav {
+        flex-wrap: wrap;
+    }
+
+    /* جعل شبكة الخيارات خيار واحد في كل صف */
+    .options-grid {
+        grid-template-columns: 1fr;
+    }
+}
