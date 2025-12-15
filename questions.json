@@ -4,59 +4,63 @@
     "text": "Je m'intéresse beaucoup aux activités physiques et
 sportives.",
     "options": ["Très mal", "Assez mal ", "Assez bien", "Très bien"],
-   "category": "R",
-  "polarity": 2
+   "category": "X",
+  "polarity": 1
   },
   {
     "id": 2,
     "text": " Dans mes études, j'ai des difficultés dès qu'il faut
 raisonner avec des nombres.",
-    "options": ["Très mal", "Assez mal ", "Assez bien", "Très bien"]
+    "options": ["Très mal", "Assez mal ", "Assez bien", "Très bien"],
+   "category": "Y",
+  "polarity":2
   },
   {
     "id": 3,
     "text": " Dans l'avenir, je travaillerais volontiers à
 l'étranger.",
-    "options": ["Très mal", "Assez mal ", "Assez bien", "Très bien"]
+    "options": ["Très mal", "Assez mal ", "Assez bien", "Très bien"],
+   "category": "Z",
+  "polarity":3
   },
    {
     "id": 4,
     "text": " Dans mon travail, je ne laisse jamais rien au
 hasard.",
    "options": ["Très mal", "Assez mal ", "Assez bien", "Très bien"],
-   "category": "R1",
-  "polarity": 2
+   "category": "R",
+  "polarity": 1
   },
   {
     "id": 5,
     "text": " J'organise toujours mon travail personnel.",
    "options": ["Très mal", "Assez mal ", "Assez bien", "Très bien"],
-   "category": "R1",
-  "polarity": 2
+   "category": "R",
+  "polarity": 1
   },
    {
     "id": 6,
     "text": " Dans mes études, je fournis les efforts nécessaires,
 sans plus.",
    "options": ["Très mal", "Assez mal ", "Assez bien", "Très bien"],
-   "category": "R2",
-  "polarity": 
+   "category": "R",
+  "polarity": 2
   },
    {
     "id": 7,
     "text": "  Lorsque je travaille, je me laisse facilement
 distraire.",
    "options": ["Très mal", "Assez mal ", "Assez bien", "Très bien"],
-   "category": "R2",
-  "polarity":
+   "category": "R",
+  "polarity":2
   },
    {
     "id": 8,
     "text": " Même quand je ne suis pas "en forme", je réussis
 toujours si je suis compétent.",
    "options": ["Très mal", "Assez mal ", "Assez bien", "Très bien"],
-   "category": "C1",
-  "polarity":
+   "category": "C",
+  "polarity":1
   },
    {
     "id": 9,
@@ -64,16 +68,16 @@ toujours si je suis compétent.",
 de mon travail.
 ",
    "options": ["Très mal", "Assez mal ", "Assez bien", "Très bien"],
-   "category": "C1",
-  "polarity":
+   "category": "C",
+  "polarity":1
   },
    {
     "id": 10,
     "text": "  Quoi que je fasse, certains enseignants ont
 toujours la même image de moi.",
    "options": ["Très mal", "Assez mal ", "Assez bien", "Très bien"],
-   "category": "C2",
-  "polarity":
+   "category": "C",
+  "polarity":2
   },
    {
     "id": 11,
@@ -81,16 +85,16 @@ toujours la même image de moi.",
 travail que j'ai fourni.
 ",
    "options": ["Très mal", "Assez mal ", "Assez bien", "Très bien"],
-   "category": "C2",
-  "polarity":
+   "category": "C",
+  "polarity":2
   },
    {
     "id": 12,
     "text": " Pour mon avenir, j'essaie de ne rien laisser au
 hasard.",
    "options": ["Très mal", "Assez mal ", "Assez bien", "Très bien"],
-   "category": "P1",
-  "polarity":
+   "category": "P",
+  "polarity":1
   },
    {
     "id": 13,
@@ -98,8 +102,8 @@ hasard.",
 avenir.
 ",
    "options": ["Très mal", "Assez mal ", "Assez bien", "Très bien"],
-   "category": "P1",
-  "polarity":
+   "category": "P",
+  "polarity":1
   },
    {
     "id": 14,
@@ -107,8 +111,8 @@ avenir.
 métier.
 ",
    "options": ["Très mal", "Assez mal ", "Assez bien", "Très bien"],
-   "category": "P2",
-  "polarity":
+   "category": "P",
+  "polarity":2
   },
    {
     "id": 15,
@@ -116,137 +120,137 @@ métier.
 à l'avance.
 ",
    "options": ["Très mal", "Assez mal ", "Assez bien", "Très bien"],
-   "category": "P2",
-  "polarity":
+   "category": "P",
+  "polarity":2
   },
    {
     "id": 16,
     "text": "  J'ai peu de temps à consacrer à mes loisirs.",
    "options": ["Très mal", "Assez mal ", "Assez bien", "Très bien"],
-   "category": "R1",
-  "polarity":
+   "category": "R",
+  "polarity":1
   },
    {
     "id": 17,
     "text": "  Je fais tout mon possible pour réussir ma
 formation.",
    "options": ["Très mal", "Assez mal ", "Assez bien", "Très bien"],
-   "category": "R1",
-  "polarity":
+   "category": "R",
+  "polarity":1
   },
    {
     "id": 18,
     "text": "  J'ai toujours beaucoup de mal à me mettre au
 travail.",
    "options": ["Très mal", "Assez mal ", "Assez bien", "Très bien"],
-   "category": "R2",
-  "polarity":
+   "category": "R",
+  "polarity":2
   },
    {
     "id": 19,
     "text": "  Pour mes études, je pense qu'être dans la "bonne
 moyenne" est bien suffisant.",
    "options": ["Très mal", "Assez mal ", "Assez bien", "Très bien"],
-   "category": "R2",
-  "polarity":
+   "category": "R",
+  "polarity":2
   },
    {
     "id": 20,
     "text": "  Quand je réussis, c'est toujours parce que j'ai bien
 travaillé.",
    "options": ["Très mal", "Assez mal ", "Assez bien", "Très bien"],
-   "category": "C1",
-  "polarity":
+   "category": "C",
+  "polarity":1
   },
    {
     "id": 21,
     "text": "  Je me sens tout-à-fait capable de réussir ma
 formation.",
    "options": ["Très mal", "Assez mal ", "Assez bien", "Très bien"],
-   "category": "C1",
-  "polarity":
+   "category": "C",
+  "polarity":1
   },
    {
     "id": 22,
     "text": " Je me sens parfois dépassé par ce qui m'arrive.",
    "options": ["Très mal", "Assez mal ", "Assez bien", "Très bien"],
-   "category": "C2",
-  "polarity":
+   "category": "C",
+  "polarity":2
   },
    {
     "id": 23,
     "text": " Quand je réussis, c'est parfois tout-à-fait par
 hasard.",
    "options": ["Très mal", "Assez mal ", "Assez bien", "Très bien"],
-   "category": "C2",
-  "polarity":
+   "category": "C",
+  "polarity":2
   },
    {
     "id": 24,
     "text": " Je travaille maintenant pour bien vivre plus tard.",
    "options": ["Très mal", "Assez mal ", "Assez bien", "Très bien"],
-   "category": "P1",
-  "polarity":
+   "category": "P",
+  "polarity":1
   },
    {
     "id": 25,
     "text": "J'ai souvent réfléchi à ce que je ferai dans la vie.",
    "options": ["Très mal", "Assez mal ", "Assez bien", "Très bien"],
-   "category": "P1",
-  "polarity":
+   "category": "P",
+  "polarity":1
   },
    {
     "id": 26,
     "text": "  Pour mon avenir, je fais peu de projets à très long
 terme.",
    "options": ["Très mal", "Assez mal ", "Assez bien", "Très bien"],
-   "category": "P2",
-  "polarity":
+   "category": "P",
+  "polarity":2
   },
    {
     "id": 27,
     "text": "  Je me préoccupe peu de mon futur métier.",
    "options": ["Très mal", "Assez mal ", "Assez bien", "Très bien"],
-   "category": "P2",
-  "polarity":
+   "category": "P",
+  "polarity":2
   },
    {
     "id": 28,
     "text": "  Je suis quelqu'un de studieux.
 ",
    "options": ["Très mal", "Assez mal ", "Assez bien", "Très bien"],
-   "category": "R1",
-  "polarity":
+   "category": "R",
+  "polarity":1
   },
    {
     "id": 29,
     "text": "Je sais faire beaucoup d'efforts pour obtenir ce que
 je veux.",
    "options": ["Très mal", "Assez mal ", "Assez bien", "Très bien"],
-   "category": "R1",
-  "polarity":
+   "category": "R",
+  "polarity":1
   },
    {
     "id": 30,
     "text": " Je fais mon travail au jour le jour.",
    "options": ["Très mal", "Assez mal ", "Assez bien", "Très bien"],
-   "category": "R2",
-  "polarity":
+   "category": "R",
+  "polarity":2
   },
    {
     "id": 31,
     "text": " Je suis habituellement très disponible.",
    "options": ["Très mal", "Assez mal ", "Assez bien", "Très bien"],
-   "category": "R2",
-  "polarity":
+   "category": "R",
+  "polarity":2
   },
    {
     "id": 32,
     "text": "  Les résultats que j'obtiens ne dépendent que de
 moi.",
    "options": ["Très mal", "Assez mal ", "Assez bien", "Très bien"],
-   "category": "C1",
-  "polarity":
+   "category": "C",
+  "polarity":1
   },
    {
     "id": 33,
@@ -254,8 +258,8 @@ moi.",
 enseignants ont de тоi.
 ",
    "options": ["Très mal", "Assez mal ", "Assez bien", "Très bien"],
-   "category": "C1",
-  "polarity":
+   "category": "C",
+  "polarity":1
   },
    {
     "id": 34,
@@ -263,8 +267,8 @@ enseignants ont de тоi.
 sens.
 ",
    "options": ["Très mal", "Assez mal ", "Assez bien", "Très bien"],
-   "category": "C2",
-  "polarity":
+   "category": "C",
+  "polarity":2
   },
    {
     "id": 35,
@@ -272,31 +276,31 @@ sens.
 examens.
 ",
    "options": ["Très mal", "Assez mal ", "Assez bien", "Très bien"],
-   "category": "C2",
-  "polarity":
+   "category": "C",
+  "polarity":2
   },
   {
     "id": 36,
     "text": " Je me suis fixé des buts et je veux les atteindre.",
    "options": ["Très mal", "Assez mal ", "Assez bien", "Très bien"],
-   "category": "P1",
-  "polarity":
+   "category": "P",
+  "polarity":1
   },
   {
     "id": 37,
     "text": " Je tiens absolument à réussir mes études.
 ",
    "options": ["Très mal", "Assez mal ", "Assez bien", "Très bien"],
-   "category": "P1",
-  "polarity":
+   "category": "P",
+  "polarity":1
   }, 
    {
     "id": 38,
     "text": " Mon avenir professionnel reste encore
 imprévisible.",
    "options": ["Très mal", "Assez mal ", "Assez bien", "Très bien"],
-   "category": "P2",
-  "polarity":
+   "category": "P",
+  "polarity":2
   },
    {
     "id": 39,
@@ -304,8 +308,8 @@ imprévisible.",
 important que l'avenir.
 ",
    "options": ["Très mal", "Assez mal ", "Assez bien", "Très bien"],
-   "category": "P2",
-  "polarity":
+   "category": "P",
+  "polarity":2
   },
    {
     "id": 40,
@@ -313,23 +317,23 @@ important que l'avenir.
 entrepris.
 ",
    "options": ["Très mal", "Assez mal ", "Assez bien", "Très bien"],
-   "category": "R1",
-  "polarity":
+   "category": "R",
+  "polarity":1
   },
    {
     "id": 41,
     "text": " J'ai le sentiment d'avoir toujours du travail à faire.",
    "options": ["Très mal", "Assez mal ", "Assez bien", "Très bien"],
-   "category": "R1",
-  "polarity":
+   "category": "R",
+  "polarity":1
   },
    {
     "id": 42,
     "text": " J'ai parfois l'impression de faire des études sans
 but précis.",
    "options": ["Très mal", "Assez mal ", "Assez bien", "Très bien"],
-   "category": "R2",
-  "polarity":
+   "category": "R",
+  "polarity":2
   },
    {
     "id": 43,
@@ -337,8 +341,8 @@ but précis.",
 travail.
 ",
    "options": ["Très mal", "Assez mal ", "Assez bien", "Très bien"],
-   "category": "R2",
-  "polarity":
+   "category": "R",
+  "polarity":2
   },
    {
     "id": 44,
@@ -346,23 +350,23 @@ travail.
 compréhensible.
 ",
    "options": ["Très mal", "Assez mal ", "Assez bien", "Très bien"],
-   "category": "C1",
-  "polarity":
+   "category": "C",
+  "polarity":1
   },
    {
     "id": 45,
     "text": " Le hasard a peu d'effet sur mes résultats scolaires.",
    "options": ["Très mal", "Assez mal ", "Assez bien", "Très bien"],
-   "category": "C1",
-  "polarity":
+   "category": "C",
+  "polarity":1
   },
    {
     "id": 46,
     "text": " La chance a joué un rôle important dans le
 déroulement de mes études.",
    "options": ["Très mal", "Assez mal ", "Assez bien", "Très bien"],
-   "category": "C2",
-  "polarity":
+   "category": "C",
+  "polarity":2
   },
    {
     "id": 47,
@@ -370,40 +374,41 @@ déroulement de mes études.",
 réussir.
 ",
    "options": ["Très mal", "Assez mal ", "Assez bien", "Très bien"],
-   "category": "C2",
-  "polarity":
+   "category": "C",
+  "polarity":2
   },
    {
     "id": 48,
     "text": "Je veux parvenir à une situation professionnelle
 intéressante.",
    "options": ["Très mal", "Assez mal ", "Assez bien", "Très bien"],
-   "category": "P1",
-  "polarity":
+   "category": "P",
+  "polarity":1
   },
    {
     "id": 49,
     "text": " Je sais quels diplômes je veux obtenir.
 ",
    "options": ["Très mal", "Assez mal ", "Assez bien", "Très bien"],
-   "category": "P1",
-  "polarity":
+   "category": "P",
+  "polarity":1
   },
    {
     "id": 50,
     "text": " Pour mon avenir,j'ai peu d'exigences définilives.",
    "options": ["Très mal", "Assez mal ", "Assez bien", "Très bien"],
-   "category": "P2",
-  "polarity":
+   "category": "P",
+  "polarity":2
   },
    {
     "id": 51,
     "text": " Mes projets professionnels sont encore imprécis.",
    "options": ["Très mal", "Assez mal ", "Assez bien", "Très bien"],
-   "category": "P2",
-  "polarity":
+   "category": "P",
+  "polarity":2
   }
 ]
    
+
 
 
