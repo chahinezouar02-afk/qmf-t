@@ -1,64 +1,137 @@
-let questions = [];
-let currentQuestion = 0;
-let answers = [];
+console.log("QMF JS running");
 
-document.getElementById("start-btn").addEventListener("click", startTest);
-document.getElementById("next-btn").addEventListener("click", nextQuestion);
+fetch("questions.json")
+  .then(response => response.json())
+  .then(data => {
+    questions = data;
+    console.log("Questions ready:", questions);
 
-function startTest() {
-    fetch("questions.json")
-        .then(res => res.json())
-        .then(data => {
-            questions = data;
-            document.getElementById("start-screen").classList.add("hidden");
-            document.getElementById("test-container").classList.remove("hidden");
-            showQuestion();
-        });
-}
-
+    // start the test only AFTER data exists
+    showQuestion();
+  });
 function showQuestion() {
-    let q = questions[currentQuestion];
-    document.getElementById("question-text").innerText = q.text;
+  let currentQuestion = questions[current];
 
-    let optionsDiv = document.getElementById("options");
-    optionsDiv.innerHTML = "";
+  questionText.innerText = currentQuestion.text;
+  questionIndex.innerText = (current + 1) + " / " + questions.length;
+  updateProgressBar();
 
-    q.options.forEach((opt, index) => {
-        optionsDiv.innerHTML += `
-            <label>
-                <input type="radio" name="option" value="${index}">
-                ${opt}
-            </label><br>
-        `;
-    });
+  // clear old selection
+  optionButtons.forEach(b => {
+    b.classList.remove("selected");
+    b.innerText = "";
+  });
+
+  // fill options
+  currentQuestion.options.forEach((option, index) => {
+    optionButtons[index].innerText = option;
+  });
+} 
+
+// score math
+const scoreMap = {
+  "Très mal": 0,
+  "Assez mal": 1,
+  "Assez bien": 2,
+  "Très bien": 3
+};
+
+// the reverse score function
+function applyPolarity(rawScore, polarity) {
+  if (polarity === 2) {
+    return 3 - rawScore;
+  }
+  return rawScore;
 }
 
-function nextQuestion() {
-    let selected = document.querySelector('input[name="option"]:checked');
+//empty score buckets
+let scores = {
+  P: 0,
+  R: 0,
+  C: 0
+};
 
-    if (!selected) {
-        alert("Please select an answer.");
-        return;
-    }
 
-    answers.push(parseInt(selected.value));
 
-    currentQuestion++;
 
-    if (currentQuestion >= questions.length) {
-        finishTest();
-    } else {
-        showQuestion();
-    }
+
+// the progress bar element
+let progressBar = document.getElementById("time-bar");
+function updateProgressBar() {
+  let percentage = ((current +1) / questions.length) * 100;
+  progressBar.style.width = percentage + "%";
 }
 
-function finishTest() {
-    document.getElementById("test-container").classList.add("hidden");
-    document.getElementById("result-screen").classList.remove("hidden");
 
-    // You will replace this when you get the official scoring formula
-    let score = answers.reduce((a, b) => a + b, 0);
 
-    document.getElementById("result-text").innerText =
-        "Your raw score is: " + score;
+// store user answers
+let userAnswers = [];
+
+let questions = [];
+
+
+let current = 0;
+
+// Grab HTML elements
+let questionText = document.getElementById("question-text");
+let questionIndex = document.getElementById("question-index");
+let nextBtn = document.getElementById("next-btn");
+let optionButtons = document.querySelectorAll(".option-button");
+
+
+// OPTION BUTTONS logic (ONLY selection)
+optionButtons.forEach(button => {
+  button.addEventListener("click", () => {
+    optionButtons.forEach(b => b.classList.remove("selected"));
+    button.classList.add("selected");
+
+    const rawScore = scoreMap[button.innerText];
+
+    userAnswers[current] = {
+      rawScore: rawScore,
+      category: questions[current].category || "X",
+      polarity: questions[current].polarity || 1
+    };
+
+    console.log("Answer stored:", userAnswers[current]);
+  });
+});
+
+
+//to calculate score according to polarity
+function computeFinalScore(answer) {
+  if (answer.polarity === 2) {
+    return 3 - answer.rawScore;
+  }
+  return answer.rawScore;
 }
+
+
+
+
+
+
+
+
+
+// NEXT BUTTON logic
+nextBtn.addEventListener("click", () => {
+
+  if (userAnswers[current] === undefined) {
+    alert("Please select an answer before continuing.");
+    return;
+  }
+
+  //  score the CURRENT question
+  let final = computeFinalScore(userAnswers[current]);
+  console.log("Final score:", final);
+
+  current++;
+
+  if (current < questions.length) {
+    showQuestion();
+  } else {
+    alert("Test finished");
+    console.log("All answers:", userAnswers);
+  }
+});
