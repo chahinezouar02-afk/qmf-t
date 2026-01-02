@@ -1,35 +1,299 @@
 [
-  { "word": "bateau", "synonyms": [ { "word": "navire", "score": 3 }, { "word": "embarcation", "score": 2 } ] },
-  { "word": "fauteuil", "synonyms": [ { "word": "chaise confortable", "score": 3 }, { "word": "siège", "score": 2 } ] },
-  { "word": "bol", "synonyms": [ { "word": "récipient", "score": 3 }, { "word": "tasse", "score": 2 } ] },
-  { "word": "instruire", "synonyms": [ { "word": "enseigner", "score": 3 }, { "word": "former", "score": 2 } ] },
-  { "word": "hier", "synonyms": [ { "word": "la veille", "score": 3 }, { "word": "le jour passé", "score": 2 } ] },
-  { "word": "arracher", "synonyms": [ { "word": "retirer", "score": 3 }, { "word": "extraire", "score": 2 } ] },
-  { "word": "sanction", "synonyms": [ { "word": "punition", "score": 3 }, { "word": "mesure disciplinaire", "score": 2 } ] },
-  { "word": "refuge", "synonyms": [ { "word": "abri", "score": 3 }, { "word": "asile", "score": 2 } ] },
-  { "word": "calendrier", "synonyms": [ { "word": "agenda", "score": 3 }, { "word": "planning", "score": 2 } ] },
-  { "word": "baleine", "synonyms": [ { "word": "cétacé", "score": 3 }, { "word": "mammifère marin", "score": 2 } ] },
-  { "word": "mime", "synonyms": [ { "word": "pantomime", "score": 3 }, { "word": "acteur silencieux", "score": 2 } ] },
-  { "word": "persévérer", "synonyms": [ { "word": "tenir bon", "score": 3 }, { "word": "continuer", "score": 2 } ] },
-  { "word": "sauvage", "synonyms": [ { "word": "feroce", "score": 3 }, { "word": "indompté", "score": 2 } ] },
-  { "word": "héréditaire", "synonyms": [ { "word": "génétique", "score": 3 }, { "word": "transmis", "score": 2 } ] },
-  { "word": "connivence", "synonyms": [ { "word": "complicité", "score": 3 }, { "word": "accord secret", "score": 2 } ] },
-  { "word": "grandiose", "synonyms": [ { "word": "magnifique", "score": 3 }, { "word": "imposant", "score": 2 } ] },
-  { "word": "confier", "synonyms": [ { "word": "remettre", "score": 3 }, { "word": "dévoiler", "score": 2 } ] },
-  { "word": "vigoureux", "synonyms": [ { "word": "énergique", "score": 3 }, { "word": "fort", "score": 2 } ] },
-  { "word": "contracter", "synonyms": [ { "word": "acquérir", "score": 3 }, { "word": "réduire", "score": 2 } ] },
-  { "word": "initiative", "synonyms": [ { "word": "proposition", "score": 3 }, { "word": "démarche", "score": 2 } ] },
-  { "word": "esquisse", "synonyms": [ { "word": "croquis", "score": 3 }, { "word": "ébauche", "score": 2 } ] },
-  { "word": "irritable", "synonyms": [ { "word": "nerveux", "score": 3 }, { "word": "susceptible", "score": 2 } ] },
-  { "word": "invectiver", "synonyms": [ { "word": "insulter", "score": 3 }, { "word": "réprimander", "score": 2 } ] },
-  { "word": "hétérogène", "synonyms": [ { "word": "varié", "score": 3 }, { "word": "composite", "score": 2 } ] },
-  { "word": "assimiler", "synonyms": [ { "word": "comprendre", "score": 3 }, { "word": "intégrer", "score": 2 } ] },
-  { "word": "concertation", "synonyms": [ { "word": "discussion", "score": 3 }, { "word": "consultation", "score": 2 } ] },
-  { "word": "émulation", "synonyms": [ { "word": "rivalité", "score": 3 }, { "word": "motivation", "score": 2 } ] },
-  { "word": "pittoresque", "synonyms": [ { "word": "charmant", "score": 3 }, { "word": "coloré", "score": 2 } ] },
-  { "word": "évasif", "synonyms": [ { "word": "vague", "score": 3 }, { "word": "indéfini", "score": 2 } ] },
-  { "word": "élaborer", "synonyms": [ { "word": "développer", "score": 3 }, { "word": "préparer", "score": 2 } ] },
-  { "word": "prosaïque", "synonyms": [ { "word": "banal", "score": 3 }, { "word": "ordinaire", "score": 2 } ] },
-  { "word": "apologie", "synonyms": [ { "word": "défense", "score": 3 }, { "word": "justification", "score": 2 } ] },
-  { "word": "conjecture", "synonyms": [ { "word": "supposition", "score": 3 }, { "word": "hypothèse", "score": 2 } ] }
+  {
+    "id": 1,
+    "text": "bateau",
+    "options": [
+      { "text": "navire", "score": 3 },
+      { "text": "embarcation", "score": 2 },
+      { "text": "voiture", "score": 0 }
+    ]
+  },
+  {
+    "id": 2,
+    "text": "fauteuil",
+    "options": [
+      { "text": "chaise confortable", "score": 3 },
+      { "text": "siège", "score": 2 },
+      { "text": "table", "score": 0 }
+    ]
+  },
+  {
+    "id": 3,
+    "text": "bol",
+    "options": [
+      { "text": "récipient", "score": 3 },
+      { "text": "tasse", "score": 2 },
+      { "text": "assiette", "score": 0 }
+    ]
+  },
+  {
+    "id": 4,
+    "text": "instruire",
+    "options": [
+      { "text": "enseigner", "score": 3 },
+      { "text": "former", "score": 2 },
+      { "text": "détruire", "score": 0 }
+    ]
+  },
+  {
+    "id": 5,
+    "text": "hier",
+    "options": [
+      { "text": "la veille", "score": 3 },
+      { "text": "le jour passé", "score": 2 },
+      { "text": "demain", "score": 0 }
+    ]
+  },
+  {
+    "id": 6,
+    "text": "arracher",
+    "options": [
+      { "text": "retirer", "score": 3 },
+      { "text": "extraire", "score": 2 },
+      { "text": "coller", "score": 0 }
+    ]
+  },
+  {
+    "id": 7,
+    "text": "sanction",
+    "options": [
+      { "text": "punition", "score": 3 },
+      { "text": "mesure disciplinaire", "score": 2 },
+      { "text": "récompense", "score": 0 }
+    ]
+  },
+  {
+    "id": 8,
+    "text": "refuge",
+    "options": [
+      { "text": "abri", "score": 3 },
+      { "text": "asile", "score": 2 },
+      { "text": "danger", "score": 0 }
+    ]
+  },
+  {
+    "id": 9,
+    "text": "calendrier",
+    "options": [
+      { "text": "agenda", "score": 3 },
+      { "text": "planning", "score": 2 },
+      { "text": "horloge", "score": 0 }
+    ]
+  },
+  {
+    "id": 10,
+    "text": "baleine",
+    "options": [
+      { "text": "cétacé", "score": 3 },
+      { "text": "mammifère marin", "score": 2 },
+      { "text": "poisson", "score": 0 }
+    ]
+  },
+  {
+    "id": 11,
+    "text": "mime",
+    "options": [
+      { "text": "pantomime", "score": 3 },
+      { "text": "acteur silencieux", "score": 2 },
+      { "text": "chanteur", "score": 0 }
+    ]
+  },
+  {
+    "id": 12,
+    "text": "persévérer",
+    "options": [
+      { "text": "tenir bon", "score": 3 },
+      { "text": "continuer", "score": 2 },
+      { "text": "abandonner", "score": 0 }
+    ]
+  },
+  {
+    "id": 13,
+    "text": "sauvage",
+    "options": [
+      { "text": "féroce", "score": 3 },
+      { "text": "indompté", "score": 2 },
+      { "text": "civilisé", "score": 0 }
+    ]
+  },
+  {
+    "id": 14,
+    "text": "héréditaire",
+    "options": [
+      { "text": "génétique", "score": 3 },
+      { "text": "transmis", "score": 2 },
+      { "text": "acquis", "score": 0 }
+    ]
+  },
+  {
+    "id": 15,
+    "text": "connivence",
+    "options": [
+      { "text": "complicité", "score": 3 },
+      { "text": "accord secret", "score": 2 },
+      { "text": "conflit", "score": 0 }
+    ]
+  },
+  {
+    "id": 16,
+    "text": "grandiose",
+    "options": [
+      { "text": "magnifique", "score": 3 },
+      { "text": "imposant", "score": 2 },
+      { "text": "médiocre", "score": 0 }
+    ]
+  },
+  {
+    "id": 17,
+    "text": "confier",
+    "options": [
+      { "text": "remettre", "score": 3 },
+      { "text": "dévoiler", "score": 2 },
+      { "text": "cacher", "score": 0 }
+    ]
+  },
+  {
+    "id": 18,
+    "text": "vigoureux",
+    "options": [
+      { "text": "énergique", "score": 3 },
+      { "text": "fort", "score": 2 },
+      { "text": "faible", "score": 0 }
+    ]
+  },
+  {
+    "id": 19,
+    "text": "contracter",
+    "options": [
+      { "text": "acquérir", "score": 3 },
+      { "text": "réduire", "score": 2 },
+      { "text": "dilater", "score": 0 }
+    ]
+  },
+  {
+    "id": 20,
+    "text": "initiative",
+    "options": [
+      { "text": "proposition", "score": 3 },
+      { "text": "démarche", "score": 2 },
+      { "text": "passivité", "score": 0 }
+    ]
+  },
+  {
+    "id": 21,
+    "text": "esquisse",
+    "options": [
+      { "text": "croquis", "score": 3 },
+      { "text": "ébauche", "score": 2 },
+      { "text": "œuvre finale", "score": 0 }
+    ]
+  },
+  {
+    "id": 22,
+    "text": "irritable",
+    "options": [
+      { "text": "nerveux", "score": 3 },
+      { "text": "susceptible", "score": 2 },
+      { "text": "calme", "score": 0 }
+    ]
+  },
+  {
+    "id": 23,
+    "text": "invectiver",
+    "options": [
+      { "text": "insulter", "score": 3 },
+      { "text": "réprimander", "score": 2 },
+      { "text": "féliciter", "score": 0 }
+    ]
+  },
+  {
+    "id": 24,
+    "text": "hétérogène",
+    "options": [
+      { "text": "varié", "score": 3 },
+      { "text": "composite", "score": 2 },
+      { "text": "uniforme", "score": 0 }
+    ]
+  },
+  {
+    "id": 25,
+    "text": "assimiler",
+    "options": [
+      { "text": "comprendre", "score": 3 },
+      { "text": "intégrer", "score": 2 },
+      { "text": "rejeter", "score": 0 }
+    ]
+  },
+  {
+    "id": 26,
+    "text": "concertation",
+    "options": [
+      { "text": "discussion", "score": 3 },
+      { "text": "consultation", "score": 2 },
+      { "text": "imposition", "score": 0 }
+    ]
+  },
+  {
+    "id": 27,
+    "text": "émulation",
+    "options": [
+      { "text": "rivalité", "score": 3 },
+      { "text": "motivation", "score": 2 },
+      { "text": "indifférence", "score": 0 }
+    ]
+  },
+  {
+    "id": 28,
+    "text": "pittoresque",
+    "options": [
+      { "text": "charmant", "score": 3 },
+      { "text": "coloré", "score": 2 },
+      { "text": "fade", "score": 0 }
+    ]
+  },
+  {
+    "id": 29,
+    "text": "évasif",
+    "options": [
+      { "text": "vague", "score": 3 },
+      { "text": "indéfini", "score": 2 },
+      { "text": "clair", "score": 0 }
+    ]
+  },
+  {
+    "id": 30,
+    "text": "élaborer",
+    "options": [
+      { "text": "développer", "score": 3 },
+      { "text": "préparer", "score": 2 },
+      { "text": "détruire", "score": 0 }
+    ]
+  },
+  {
+    "id": 31,
+    "text": "prosaïque",
+    "options": [
+      { "text": "banal", "score": 3 },
+      { "text": "ordinaire", "score": 2 },
+      { "text": "poétique", "score": 0 }
+    ]
+  },
+  {
+    "id": 32,
+    "text": "apologie",
+    "options": [
+      { "text": "défense", "score": 3 },
+      { "text": "justification", "score": 2 },
+      { "text": "critique", "score": 0 }
+    ]
+  },
+  {
+    "id": 33,
+    "text": "conjecture",
+    "options": [
+      { "text": "supposition", "score": 3 },
+      { "text": "hypothèse", "score": 2 },
+      { "text": "certitude", "score": 0 }
+    ]
+  }
 ]
