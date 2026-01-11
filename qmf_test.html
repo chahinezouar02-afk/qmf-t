@@ -45,7 +45,7 @@
                 <!-- هذه العناصر ثابتة في التصميم ويمكن التحكم فيها لاحقا بجافاسكربت إن رغبت -->
                 <div class="question-progress">
                     <!-- نص رقم السؤال -->
-                    <span class="question-index">
+                    <span class="question-index" id="question-index">
                         <!-- مثال: 1 من أصل 51 -->
                         1 / 51
                     </span>
@@ -72,8 +72,8 @@
             </div>
 
             <!-- شريط يوضح مدى تقدم الوقت (مثل شريط اليوتيوب) -->
-            <div class="time-bar-wrapper">
-                <div class="time-bar-fill" style="width: 20%;">
+            <div class="time-bar-wrapper" >
+                <div class="time-bar-fill"  id="time-bar">
                     <!-- يمكن التحكم بنسبة العرض لاحقا بجافاسكربت لتُظهر تقدم الوقت -->
                 </div>
             </div>
@@ -81,15 +81,15 @@
             <!-- منطقة السؤال -->
             <div class="question-body">
                 <!-- مثال لسؤال رقم 1 كما ذكرت -->
-                <p class="question-text">
+                <p class="question-text" id="question-text">
                     1 - Je m'intéresse beaucoup aux activités physiques et sportives.
                 </p>
 
                 <!-- خيارات الإجابة الأربعة داخل مستطيلات بدون حواف بارزة -->
-                <div class="options-grid">
+                <div class="options-grid" id="options">
                     <!-- كل خيار زر مستقل يمكن تفعيله بجافاسكربت لاحقا -->
                     <button class="option-button">
-                        Très mal
+                        Très bien
                     </button>
                     <button class="option-button">
                         Assez bien
@@ -98,7 +98,7 @@
                         Assez mal
                     </button>
                     <button class="option-button">
-                        Très bien
+                        Très mal
                     </button>
                 </div>
             </div>
@@ -106,11 +106,14 @@
             <!-- زر الانتقال للسؤال التالي -->
             <div class="question-footer">
                 <!-- في آخر سؤال يمكن تغيير النص إلى show score يدويا أو بجافاسكربت -->
-                <a href="qmf_result.html" class="primary-button">
-                    Next
-                </a>
+                <button class= "primary-button" id= "next-btn"> Next</button>
             </div>
         </section>
     </main>
+    
+
+    <h2 id="demo">Hello</h2>
+    <script src="app.js"></script>
+
 </body>
 </html>
