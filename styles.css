@@ -396,3 +396,10 @@ body {
         grid-template-columns: 1fr;
     }
 }
+
+    /*sorry joumana m9dertech nsbor  :))))))))) */
+.score-box {
+    display: flex;
+    flex-direction: column;  /* stack children vertically */
+    gap: 1em;                /* spacing between lines */
+}
