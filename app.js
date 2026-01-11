@@ -1,34 +1,9 @@
 console.log("QMF JS running");
 
-fetch("questions.json")
-  .then(response => response.json())
-  .then(data => {
-    questions = data;
-    console.log("Questions ready:", questions);
+let questions = [];
+let userAnswers = [];
+let current = 0;
 
-    // start the test only AFTER data exists
-    showQuestion();
-  });
-function showQuestion() {
-  let currentQuestion = questions[current];
-
-  questionText.innerText = currentQuestion.text;
-  questionIndex.innerText = (current + 1) + " / " + questions.length;
-  updateProgressBar();
-
-  // clear old selection
-  optionButtons.forEach(b => {
-    b.classList.remove("selected");
-    b.innerText = "";
-  });
-
-  // fill options
-  currentQuestion.options.forEach((option, index) => {
-    optionButtons[index].innerText = option;
-  });
-} 
-
-// score math
 const scoreMap = {
   "Très mal": 0,
   "Assez mal": 1,
@@ -36,102 +11,103 @@ const scoreMap = {
   "Très bien": 3
 };
 
-// the reverse score function
-function applyPolarity(rawScore, polarity) {
-  if (polarity === 2) {
-    return 3 - rawScore;
-  }
-  return rawScore;
-}
-
-//empty score buckets
-let scores = {
-  P: 0,
-  R: 0,
-  C: 0
-};
-
-
-
-
-
-// the progress bar element
-let progressBar = document.getElementById("time-bar");
-function updateProgressBar() {
-  let percentage = ((current +1) / questions.length) * 100;
-  progressBar.style.width = percentage + "%";
-}
-
-
-
-// store user answers
-let userAnswers = [];
-
-let questions = [];
-
-
-let current = 0;
-
 // Grab HTML elements
-let questionText = document.getElementById("question-text");
-let questionIndex = document.getElementById("question-index");
-let nextBtn = document.getElementById("next-btn");
-let optionButtons = document.querySelectorAll(".option-button");
+const questionText = document.getElementById("question-text");
+const questionIndex = document.getElementById("question-index");
+const nextBtn = document.getElementById("next-btn");
+const optionButtons = document.querySelectorAll(".option-button");
+const progressBar = document.getElementById("time-bar");
 
+// fetch questions
+fetch("questions.json")
+  .then(res => res.json())
+  .then(data => {
+    questions = data;
+    console.log("Questions ready:", questions);
+    showQuestion();
+  });
 
-// OPTION BUTTONS logic (ONLY selection)
+// show current question
+function showQuestion() {
+  const currentQuestion = questions[current];
+
+  questionText.innerText = currentQuestion.text;
+  questionIndex.innerText = `${current + 1} / ${questions.length}`;
+  updateProgressBar();
+
+  optionButtons.forEach(b => {
+    b.classList.remove("selected");
+    b.innerText = "";
+  });
+
+  currentQuestion.options.forEach((option, idx) => {
+    optionButtons[idx].innerText = option;
+  });
+}
+
+// update progress bar
+function updateProgressBar() {
+  const pct = ((current + 1) / questions.length) * 100;
+  progressBar.style.width = pct + "%";
+}
+
+// select option
 optionButtons.forEach(button => {
   button.addEventListener("click", () => {
     optionButtons.forEach(b => b.classList.remove("selected"));
     button.classList.add("selected");
 
     const rawScore = scoreMap[button.innerText];
+    const q = questions[current];
 
     userAnswers[current] = {
       rawScore: rawScore,
-      category: questions[current].category || "X",
-      polarity: questions[current].polarity || 1
+      category: q.category || "X",
+      polarity: q.polarity || 1
     };
-
-    console.log("Answer stored:", userAnswers[current]);
   });
 });
 
-
-//to calculate score according to polarity
+// compute score with polarity
 function computeFinalScore(answer) {
-  if (answer.polarity === 2) {
-    return 3 - answer.rawScore;
-  }
+  if (answer.polarity === 2) return 3 - answer.rawScore;
   return answer.rawScore;
 }
 
-
-
-
-
-
-
-
-
-// NEXT BUTTON logic
+// handle next button
 nextBtn.addEventListener("click", () => {
-
-  if (userAnswers[current] === undefined) {
+  if (!userAnswers[current]) {
     alert("Please select an answer before continuing.");
     return;
   }
-
-  //  score the CURRENT question
-  let final = computeFinalScore(userAnswers[current]);
-  console.log("Final score:", final);
 
   current++;
 
   if (current < questions.length) {
     showQuestion();
   } else {
-    alert("Test finished");
-    console.log("All answers:", userAnswers);
+    // calculate scores per dimension
+    const scores = { P: 0, R: 0, C: 0 };
+    const maxScores = { P: 0, R: 0, C: 0 };
+
+    userAnswers.forEach((answer, idx) => {
+      const cat = answer.category;
+      if (cat in scores) {
+        scores[cat] += computeFinalScore(answer);
+        maxScores[cat] += 3; // max 3 per question
+      }
+    });
+
+    const resultData = {
+      P: scores.P,
+      R: scores.R,
+      C: scores.C,
+      maxScores: maxScores
+    };
+
+    localStorage.setItem("qmfResult", JSON.stringify(resultData));
+
+    // go to results page
+    window.location.href = "qmf_result.html";
   }
 });
