@@ -27,14 +27,14 @@ function showQuestion() {
     question.options.forEach(option => {
         const btn = document.createElement("button");
         btn.textContent = option.text;
-        btn.className = "option-btn";
+       btn.className = "option-button";
 
         btn.onclick = () => {
             selectedScore = option.score;
             document.getElementById("next-btn").disabled = false;
 
             // إزالة التحديد من كل الأزرار
-            document.querySelectorAll(".option-btn").forEach(b => {
+            document.querySelectorAll(".option-button").forEach(b => {
                 b.classList.remove("selected");
             });
 
