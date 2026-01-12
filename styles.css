@@ -316,6 +316,11 @@ body {
     text-align: center;
     transition: background-color 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease;
 }
+.option-button.selected {
+    background-color: #0b1120;
+    color: #e8f0fe;
+    box-shadow: 0 4px 8px rgba(15, 23, 42, 0.2);
+}
 
 /* تأثير تمرير على الخيار */
 .option-button:hover {
@@ -403,3 +408,4 @@ body {
     flex-direction: column;  /* stack children vertically */
     gap: 1em;                /* spacing between lines */
 }
+
