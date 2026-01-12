@@ -46,6 +46,9 @@ function showQuestion() {
 
     document.getElementById("progress").textContent =
         `${currentIndex + 1} / ${questions.length}`;
+     const progressBar = document.getElementById("progress-bar");
+    const percentage = ((currentIndex + 1) / questions.length) * 100;
+    progressBar.style.width = percentage + "%";
 }
 
 // زر التالي
