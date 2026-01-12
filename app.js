@@ -1,9 +1,19 @@
+// Just a simple console message to check if the JS file is running
 console.log("QMF JS running");
 
+// ===== VARIABLES =====
+
+// This will hold all the questions we load from JSON
 let questions = [];
+
+// This will store the answers the user selects
 let userAnswers = [];
+
+// This keeps track of which question the user is on (starts at 0)
 let current = 0;
 
+// Mapping of text options to scores
+// For example, if user clicks "Très bien", they get 3 points
 const scoreMap = {
   "Très mal": 0,
   "Assez mal": 1,
@@ -11,40 +21,49 @@ const scoreMap = {
   "Très bien": 3
 };
 
-// DOM elements
-const questionText = document.getElementById("question-text");
-const questionIndex = document.getElementById("question-index");
-const nextBtn = document.getElementById("next-btn");
-const optionButtons = document.querySelectorAll(".option-button");
-const progressBar = document.getElementById("time-bar");
+// ===== GET ELEMENTS FROM THE PAGE =====
+// These are the things in your HTML we want to update or listen to
 
-// fetch questions from JSON
+const questionText = document.getElementById("question-text"); // the <div> or <p> showing question text
+const questionIndex = document.getElementById("question-index"); // shows "1 / 10" etc
+const nextBtn = document.getElementById("next-btn"); // the "Next" button
+const optionButtons = document.querySelectorAll(".option-button"); // all the buttons the user clicks for answers
+const progressBar = document.getElementById("time-bar"); // the visual bar showing progress
+
+// ===== LOAD QUESTIONS =====
+
+// Fetch JSON file with questions
 fetch("questions.json")
-  .then(res => res.json())
+  .then(res => res.json())  // convert JSON file to JavaScript object
   .then(data => {
-    questions = data;
-    console.log("Questions loaded:", questions);
-    showQuestion();
+    questions = data; // store questions in our variable
+    console.log("Questions loaded:", questions); // log to check
+    showQuestion(); // show the first question
   })
-  .catch(err => console.error("Error loading questions:", err));
+  .catch(err => console.error("Error loading questions:", err)); // show error if file fails
 
-// ========== FUNCTIONS ==========
+// ===== FUNCTIONS =====
 
-// show current question
+// Show the current question on screen
 function showQuestion() {
-  const q = questions[current];
+  const q = questions[current]; // pick the current question
 
+  // Update question text
   questionText.innerText = q.text;
+
+  // Update question number display like "1 / 10"
   questionIndex.innerText = `${current + 1} / ${questions.length}`;
+
+  // Update progress bar width
   updateProgressBar();
 
-  // fill options
+  // Fill each option button with the text of the question's options
   optionButtons.forEach((btn, idx) => {
-    btn.innerText = q.options[idx] || "";
-    btn.classList.remove("selected");
+    btn.innerText = q.options[idx] || ""; // if no option, show empty
+    btn.classList.remove("selected"); // remove highlight from any previous selection
   });
 
-  // if last question, change Next button text
+  // If we are on the last question, change "Next" button to "Show Results"
   if (current === questions.length - 1) {
     nextBtn.innerText = "Show Results";
   } else {
@@ -52,66 +71,83 @@ function showQuestion() {
   }
 }
 
-// update progress bar
+// Update the progress bar (visually showing how far user is)
 function updateProgressBar() {
-  const pct = ((current + 1) / questions.length) * 100;
-  progressBar.style.width = pct + "%";
+  const pct = ((current + 1) / questions.length) * 100; // calculate percentage
+  progressBar.style.width = pct + "%"; // set the bar width
 }
 
-// compute final score with polarity
+// Compute the final score, considering polarity
+// Some questions are "reversed", so we subtract from 3
 function computeFinalScore(answer) {
-  if (answer.polarity === 2) return 3 - answer.rawScore;
-  return answer.rawScore;
+  if (answer.polarity === 2) return 3 - answer.rawScore; // reversed question
+  return answer.rawScore; // normal question
 }
 
-// ========== OPTION BUTTONS ==========
+// ===== OPTION BUTTONS =====
+
+// Add click events for each option button
 optionButtons.forEach(button => {
   button.addEventListener("click", () => {
-    // mark selected
+    // Remove highlight from all buttons
     optionButtons.forEach(b => b.classList.remove("selected"));
+
+    // Highlight the one clicked
     button.classList.add("selected");
 
+    // Get the score of the clicked button
     const rawScore = scoreMap[button.innerText];
+
+    // Get current question object
     const q = questions[current];
 
+    // Save user answer
     userAnswers[current] = {
-      rawScore,
-      category: q.category || "X",
-      polarity: q.polarity || 1
+      rawScore,             // points
+      category: q.category || "X",  // category (like P, R, C)
+      polarity: q.polarity || 1     // normal or reversed
     };
 
+    // Log for debugging
     console.log("Selected answer:", userAnswers[current]);
   });
 });
 
-// ========== NEXT BUTTON ==========
+// ===== NEXT BUTTON =====
+
+// When user clicks Next (or Show Results)
 nextBtn.addEventListener("click", () => {
-  // must select an option
+
+  // Make sure user selected an answer
   if (!userAnswers[current]) {
     alert("Please select an answer before continuing.");
-    return;
+    return; // stop function if no answer
   }
 
+  // Go to next question
   current++;
 
   if (current < questions.length) {
+    // If we still have questions, show the next one
     showQuestion();
   } else {
-    // finished all questions, save results and redirect
-    const scores = { P: 0, R: 0, C: 0 };
-    const maxScores = { P: 0, R: 0, C: 0 };
+    // Otherwise, we are done with all questions
+    // Calculate total scores
+    const scores = { P: 0, R: 0, C: 0 };      // total points per category
+    const maxScores = { P: 0, R: 0, C: 0 };   // maximum possible points per category
 
     userAnswers.forEach(answer => {
       const cat = answer.category;
       if (cat in scores) {
-        scores[cat] += computeFinalScore(answer);
-        maxScores[cat] += 3;
+        scores[cat] += computeFinalScore(answer); // add points
+        maxScores[cat] += 3;                     // maximum per question is 3
       }
     });
 
+    // Save results in localStorage so result page can read it
     localStorage.setItem("qmfResult", JSON.stringify({ ...scores, maxScores }));
 
-    // redirect to result page
+    // Go to result page
     window.location.href = "qmf_result.html";
   }
 });
