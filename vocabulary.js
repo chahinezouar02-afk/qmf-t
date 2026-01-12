@@ -62,10 +62,9 @@ document.getElementById("next-btn").addEventListener("click", () => {
 
 // عرض النتيجة
 function showResult() {
-    document.body.innerHTML = `
-        <main class="page-content">
-            <h2>Test Finished 🎉</h2>
-            <p>Your total score: <strong>${totalScore}</strong></p>
-        </main>
-    `;
+    // تخزين النتيجة في المتصفح
+    localStorage.setItem("vocabularyScore", totalScore);
+
+    // الانتقال إلى صفحة النتيجة
+    window.location.href = "vocabulary_result.html";
 }
