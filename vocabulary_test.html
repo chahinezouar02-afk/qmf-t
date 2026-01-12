@@ -43,9 +43,7 @@
             <div class="question-header">
                 <div class="question-progress">
                     <!-- مثال: سؤال 1 من أصل 20 -->
-                    <span class="question-index">
-                        1 / 20
-                    </span>
+                    <span id="progress">1 / 33</span>
                 </div>
                 <div class="timer-container">
                     <span class="time-label">Time:</span>
@@ -63,26 +61,29 @@
             <!-- جسم السؤال -->
             <div class="question-body">
                 <!-- الكلمة المطلوب اختيار مرادفها -->
-                <p class="question-text">
-                    Select the closest synonym for: <strong>"Happy"</strong>
+                <p class="question-text" id="question-word">
+                    <!-- سيتم تعبئتها من خلال JavaScript -->
                 </p>
 
                 <!-- ثلاث خيارات ضمن مستطيلات -->
-                <div class="options-grid">
-                    <button class="option-button">Joyful</button>
-                    <button class="option-button">Angry</button>
-                    <button class="option-button">Afraid</button>
+                <div class="options-grid" id="options-container">
+                    <!--   تعمرها JavaScript -->
                 </div>
+
             </div>
+
 
             <!-- زر التالي -->
             <div class="question-footer">
                 <!-- في آخر سؤال يمكن استبدال النص بـ show score -->
-                <a href="vocabulary_result.html" class="primary-button">
-                    Next
-                </a>
+                <button id="next-btn" class="primary-button" disabled>
+                     Next
+                </button>
             </div>
         </section>
     </main>
+    <script src="vocabulary.js">
+        // JavaScript will be added here
+    </script>
 </body>
 </html>
