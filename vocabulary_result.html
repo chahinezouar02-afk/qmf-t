@@ -38,8 +38,8 @@
 
             <!-- مستطيل النتيجة -->
             <div class="score-box">
-                <span class="score-value">
-                    15 / 20
+                <span class="score-value" id="vocab-score">
+                    <!-- تعمرها  javaScript -->
                 </span>
             </div>
 
@@ -49,5 +49,14 @@
             </a>
         </section>
     </main>
+
+    <!-- JavaScript لعرض نتيجة اختبار المفردات -->
+    <script>
+        // استرجاع النتيجة المخزنة من صفحة الاختبار
+        const score = localStorage.getItem("vocabularyScore");
+
+        // عرض النتيجة داخل المستطيل
+        document.getElementById("vocab-score").innerText = score + " / 99";
+    </script>
 </body>
 </html>
