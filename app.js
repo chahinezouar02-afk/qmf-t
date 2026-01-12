@@ -11,38 +11,45 @@ const scoreMap = {
   "Très bien": 3
 };
 
-// Grab HTML elements
+// DOM elements
 const questionText = document.getElementById("question-text");
 const questionIndex = document.getElementById("question-index");
 const nextBtn = document.getElementById("next-btn");
 const optionButtons = document.querySelectorAll(".option-button");
 const progressBar = document.getElementById("time-bar");
 
-// fetch questions
+// fetch questions from JSON
 fetch("questions.json")
   .then(res => res.json())
   .then(data => {
     questions = data;
-    console.log("Questions ready:", questions);
+    console.log("Questions loaded:", questions);
     showQuestion();
-  });
+  })
+  .catch(err => console.error("Error loading questions:", err));
+
+// ========== FUNCTIONS ==========
 
 // show current question
 function showQuestion() {
-  const currentQuestion = questions[current];
+  const q = questions[current];
 
-  questionText.innerText = currentQuestion.text;
+  questionText.innerText = q.text;
   questionIndex.innerText = `${current + 1} / ${questions.length}`;
   updateProgressBar();
 
-  optionButtons.forEach(b => {
-    b.classList.remove("selected");
-    b.innerText = "";
+  // fill options
+  optionButtons.forEach((btn, idx) => {
+    btn.innerText = q.options[idx] || "";
+    btn.classList.remove("selected");
   });
 
-  currentQuestion.options.forEach((option, idx) => {
-    optionButtons[idx].innerText = option;
-  });
+  // if last question, change Next button text
+  if (current === questions.length - 1) {
+    nextBtn.innerText = "Show Results";
+  } else {
+    nextBtn.innerText = "Next";
+  }
 }
 
 // update progress bar
@@ -51,9 +58,16 @@ function updateProgressBar() {
   progressBar.style.width = pct + "%";
 }
 
-// select option
+// compute final score with polarity
+function computeFinalScore(answer) {
+  if (answer.polarity === 2) return 3 - answer.rawScore;
+  return answer.rawScore;
+}
+
+// ========== OPTION BUTTONS ==========
 optionButtons.forEach(button => {
   button.addEventListener("click", () => {
+    // mark selected
     optionButtons.forEach(b => b.classList.remove("selected"));
     button.classList.add("selected");
 
@@ -61,21 +75,18 @@ optionButtons.forEach(button => {
     const q = questions[current];
 
     userAnswers[current] = {
-      rawScore: rawScore,
+      rawScore,
       category: q.category || "X",
       polarity: q.polarity || 1
     };
+
+    console.log("Selected answer:", userAnswers[current]);
   });
 });
 
-// compute score with polarity
-function computeFinalScore(answer) {
-  if (answer.polarity === 2) return 3 - answer.rawScore;
-  return answer.rawScore;
-}
-
-// handle next button
+// ========== NEXT BUTTON ==========
 nextBtn.addEventListener("click", () => {
+  // must select an option
   if (!userAnswers[current]) {
     alert("Please select an answer before continuing.");
     return;
@@ -86,28 +97,22 @@ nextBtn.addEventListener("click", () => {
   if (current < questions.length) {
     showQuestion();
   } else {
-    // calculate scores per dimension
+    // finished all questions, save results and redirect
     const scores = { P: 0, R: 0, C: 0 };
     const maxScores = { P: 0, R: 0, C: 0 };
 
-    userAnswers.forEach((answer, idx) => {
+    userAnswers.forEach(answer => {
       const cat = answer.category;
       if (cat in scores) {
         scores[cat] += computeFinalScore(answer);
-        maxScores[cat] += 3; // max 3 per question
+        maxScores[cat] += 3;
       }
     });
 
-    const resultData = {
-      P: scores.P,
-      R: scores.R,
-      C: scores.C,
-      maxScores: maxScores
-    };
+    localStorage.setItem("qmfResult", JSON.stringify({ ...scores, maxScores }));
 
-    localStorage.setItem("qmfResult", JSON.stringify(resultData));
-
-    // go to results page
+    // redirect to result page
     window.location.href = "qmf_result.html";
   }
 });
+
